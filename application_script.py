@@ -11,7 +11,11 @@ tell application "System Events"
     keystroke "f" using {control down, command down}
 end tell
 """
-
+quit = """
+tell application "System Events"
+    keystroke "q" using {command down}
+end tell
+"""
 
 # This function assumes 
 # * Static coordinates for buttons 
@@ -34,9 +38,30 @@ def login(os_name):
     time.sleep(3)
     pyautogui.moveTo(700, 550)  # Move to correct google account  
     pyautogui.click()   
-    
+
     time.sleep(3)
     subprocess.run(["osascript", "-e", fullScreen]) # Open full screen
+
+
+def new_page():
+    pyautogui.moveTo(78, 145)  # Move to "new page"-button  
+
+def cleanup():
+    time.sleep(1)
+    subprocess.run(["osascript", "-e", fullScreen]) # Open full screen
+    time.sleep(3)
+    pyautogui.moveTo(191, 102)
+    time.sleep(1)
+    pyautogui.click()
+
+    time.sleep(1)
+    pyautogui.moveTo(147, 391)
+    time.sleep(1)
+    pyautogui.click()
+
+    time.sleep(2)
+    subprocess.run(["osascript", "-e", quit]) # Open full screen
+
 
 
 
@@ -44,6 +69,8 @@ def login(os_name):
 def main():
     os_name = platform.system()
     login(os_name)
+    cleanup()
+
 
 
 
