@@ -53,12 +53,43 @@ def cleanup():
     # Should write a code to delete the files created
 
 def new_page():
-    pyautogui.moveTo(78, 145)  # Move to "new page"-button  
+    time.sleep(1)
+    pyautogui.moveTo(56, 145)  # Move to "new page"-button  
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(1)
+
+    pyautogui.moveTo(366, 517)  # Move to "templates"-button  
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(1)
+
+    pyautogui.moveTo(188, 120)  # Move to searchbar
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(1)
+
+    pyautogui.write('notes', interval=0.1)
+    time.sleep(1)
+
+    pyautogui.moveTo(172, 182)  # Move to "class notes"-button
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(1)
+
+    pyautogui.moveTo(1140, 700)  # Move to "class notes"-button
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(4)
+
+    
+
 
 
 # Assumes macOS
 def main():
     login()
+    new_page()
     cleanup()
 
 
