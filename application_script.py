@@ -56,11 +56,11 @@ def cleanup():
     # Should write a code to delete the files created
 
 def new_page():
-    # Create new pageering
+    # Create new page
     time.sleep(3)
-    pyautogui.moveTo(56, 145)  # Move to "new page"-button  
-    time.sleep(1)
-    pyautogui.click()
+    pyautogui.keyDown('command')            # cmd+n = new page
+    pyautogui.write('n', interval=0.1)
+    pyautogui.keyUp('command')
     time.sleep(1)
 
     pyautogui.moveTo(366, 517)  # Move to "templates"-button  
@@ -83,15 +83,15 @@ def new_page():
 
     pyautogui.moveTo(1170, 670)  # Move to get template
     pyautogui.click()
-    time.sleep(4)
+    time.sleep(1)
 
 def create_page():
     time.sleep(1)
     # Get the class notes template 
-    pyautogui.moveTo(1000, 361)  # Move to "Cornell notes system"-header 
+    pyautogui.moveTo(954, 365)  # Move to "Cornell notes system"-header 
     time.sleep(1)
     pyautogui.click()
-    time.sleep(2)
+    time.sleep(1)
     # Write heading
     for i in range(20):
         pyautogui.press('backspace')
@@ -105,10 +105,7 @@ def create_page():
     time.sleep(1)
     pyautogui.press('backspace')
     time.sleep(0.1) 
-    pyautogui.keyDown('shift')  # Hold down the 'shift' key
-    pyautogui.press('2')        # Press '2' to produce '@'
-    pyautogui.keyUp('shift')    # Release the 'shift' key, there is a bug with "@" use in .write()
-    pyautogui.write("t", interval=0.1)
+    pyautogui.write("@t", interval=0.1)
     time.sleep(0.1) 
     pyautogui.press('enter') 
     pyautogui.moveTo(518, 306)  # Move to "Topic"-header 
@@ -133,7 +130,47 @@ def create_page():
     pyautogui.press('enter') 
     pyautogui.write('We need to be sustainable', 0.1)
 
+def todo_list():
+    time.sleep(3)
+    pyautogui.moveTo(500, 675)  # Move to bottom of screen
+    time.sleep(0.1) 
+    pyautogui.click()
+    pyautogui.write("/h3", interval=0.1)
+    time.sleep(0.1)                 # maybe
+    pyautogui.press('enter') 
+    pyautogui.write("To Do:", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("/t", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("Read the essay paper", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("Ask prof. about the project", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("Plan team meeting", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.press('enter') 
+    pyautogui.press('enter') 
 
+
+def material():
+    time.sleep(2)
+    pyautogui.write("/h3", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("Material:", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("/f", interval=0.1)
+    pyautogui.press('enter') 
+    time.sleep(0.1)
+    pyautogui.moveTo(877, 705)  # Move to "Choose a file"-button
+    pyautogui.click()
+    pyautogui.moveTo(424, 450)  # Move to "Desktop" in finder 
+    time.sleep(0.5)
+    pyautogui.click()
+    pyautogui.moveTo(553, 340)  # Move to first element in folder
+    pyautogui.click()
+    pyautogui.moveTo(1016, 643)  # Move to "open"-button 
+    pyautogui.click()
+    time.sleep(2)
 
 
 # Assumes macOS
@@ -141,9 +178,9 @@ def main():
     login()
     new_page()
     create_page()
+    todo_list()
+    material()
     cleanup()
-
-
 
 
 main()
