@@ -4,6 +4,8 @@ import subprocess
 import platform
 import os
 
+import pyperclip
+
 # script to simulate ctr+cmd+f 
 fullScreen = """
 tell application "System Events"
@@ -22,18 +24,19 @@ end tell
 # * Static coordinates for buttons 
 def login():
     subprocess.run(["open", "/Applications/Notion.app"])
+    subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
 
-    time.sleep(3)
-    pyautogui.moveTo(720, 320)  # Move to on google login button
+    time.sleep(1)
+    pyautogui.moveTo(710, 340)  # Move to on google login button
+    time.sleep(1)
     pyautogui.click()
 
     time.sleep(3)
     pyautogui.moveTo(700, 550)  # Move to correct google account for login  
+    time.sleep(1)
     pyautogui.click()   
 
-    time.sleep(3)
-    subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
-
+    time.sleep(5)
 
 def cleanup():
     time.sleep(1)
@@ -53,7 +56,8 @@ def cleanup():
     # Should write a code to delete the files created
 
 def new_page():
-    time.sleep(1)
+    # Create new pageering
+    time.sleep(3)
     pyautogui.moveTo(56, 145)  # Move to "new page"-button  
     time.sleep(1)
     pyautogui.click()
@@ -72,17 +76,63 @@ def new_page():
     pyautogui.write('notes', interval=0.1)
     time.sleep(1)
 
-    pyautogui.moveTo(172, 182)  # Move to "class notes"-button
+    pyautogui.moveTo(212, 215)  # Move to "Cornell"-button  
     time.sleep(1)
     pyautogui.click()
     time.sleep(1)
 
-    pyautogui.moveTo(1140, 700)  # Move to "class notes"-button
-    time.sleep(1)
+    pyautogui.moveTo(1170, 670)  # Move to get template
     pyautogui.click()
     time.sleep(4)
 
+def create_page():
+    time.sleep(1)
+    # Get the class notes template 
+    pyautogui.moveTo(1000, 361)  # Move to "Cornell notes system"-header 
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(2)
+    # Write heading
+    for i in range(20):
+        pyautogui.press('backspace')
+    time.sleep(1)
+    pyautogui.write("CS4415 - Sustainable Software Engineering", interval=0.1)
+    time.sleep(2)
+    pyautogui.scroll(-100)
+    time.sleep(1)
+    pyautogui.moveTo(750, 240)  # Move to "Date"-header 
+    pyautogui.click()
+    time.sleep(1)
+    pyautogui.press('backspace')
+    time.sleep(0.1) 
+    pyautogui.keyDown('shift')  # Hold down the 'shift' key
+    pyautogui.press('2')        # Press '2' to produce '@'
+    pyautogui.keyUp('shift')    # Release the 'shift' key, there is a bug with "@" use in .write()
+    pyautogui.write("t", interval=0.1)
+    time.sleep(0.1) 
+    pyautogui.press('enter') 
+    pyautogui.moveTo(518, 306)  # Move to "Topic"-header 
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(0.5)
+    pyautogui.write('Green Fintech', 0.1)
     
+    time.sleep(1) 
+    pyautogui.moveTo(785, 470)  # Move to bullet points
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(1)
+    for i in range(8):
+        pyautogui.press('backspace')
+    time.sleep(1)
+    pyautogui.write('Some cool notes', 0.1)
+    time.sleep(0.1) 
+    pyautogui.press('enter') 
+    pyautogui.write('Green', 0.1)
+    time.sleep(0.1) 
+    pyautogui.press('enter') 
+    pyautogui.write('We need to be sustainable', 0.1)
+
 
 
 
@@ -90,6 +140,7 @@ def new_page():
 def main():
     login()
     new_page()
+    create_page()
     cleanup()
 
 
