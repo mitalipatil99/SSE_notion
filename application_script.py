@@ -86,7 +86,24 @@ def new_page():
     time.sleep(1)
 
 def create_page():
+    time.sleep(3)
+    # Delete the explanation 
+    pyautogui.scroll(-100)
     time.sleep(1)
+    pyautogui.moveTo(365, 123)  # Move to "Cornell notes system"-header 
+    time.sleep(0.1)
+    pyautogui.mouseDown()
+    time.sleep(1)
+    pyautogui.moveTo(1380, 153)  # Move to "Cornell notes system"-header 
+    time.sleep(1)
+    pyautogui.scroll(100)
+    time.sleep(1)
+    pyautogui.mouseUp()
+    time.sleep(1)
+    pyautogui.press('backspace')
+    pyautogui.moveTo(365, 123)  # Move to "Cornell notes system"-header 
+    pyautogui.mouseDown()
+
     # Get the class notes template 
     pyautogui.moveTo(954, 365)  # Move to "Cornell notes system"-header 
     time.sleep(1)
@@ -162,15 +179,46 @@ def material():
     pyautogui.press('enter') 
     time.sleep(0.1)
     pyautogui.moveTo(877, 705)  # Move to "Choose a file"-button
+    time.sleep(0.1)
     pyautogui.click()
-    pyautogui.moveTo(424, 450)  # Move to "Desktop" in finder 
+    time.sleep(0.1)
+    pyautogui.moveTo(390, 460)  # Move to "Desktop" in finder 
     time.sleep(0.5)
     pyautogui.click()
-    pyautogui.moveTo(553, 340)  # Move to first element in folder
+    pyautogui.moveTo(550, 350)  # Move to first element in folder
     pyautogui.click()
-    pyautogui.moveTo(1016, 643)  # Move to "open"-button 
+    pyautogui.moveTo(1025, 645)  # Move to "open"-button 
     pyautogui.click()
     time.sleep(2)
+    pyautogui.scroll(-10)
+    time.sleep(0.1)
+    pyautogui.moveTo(450, 645) # Line under imported file i
+    time.sleep(0.1)
+    pyautogui.click()
+    pyautogui.press('enter')
+    pyautogui.write("/pa", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write("Question to professor - steering meeting", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write("/c", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write("During the steering meeting we will have the chance to ask the professors about our project. We will get some feedback, and overview of how our progress is. The meeting is on @26.02.", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write(".", interval=0.1)
+    pyautogui.keyDown('shift')
+    pyautogui.press('enter')
+    pyautogui.write("Pia will not attend the meeting", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('enter')
+    pyautogui.write("/n", interval=0.1) # notion function for numbered list
+    pyautogui.press('enter')
+    pyautogui.write("What is EnergyBridge?", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write("When is the deadline?", interval=0.1)
+
+
+
+
 
 
 # Assumes macOS
