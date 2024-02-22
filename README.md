@@ -28,3 +28,5 @@ Password:notion2024
 ## Marks
 
 The scritps are written to use both applications in the most efficient way. That means using autocomplete, where that is supporten within the app (ex. @today is tabbet to autocomplete after @t is pressed on keyboard)
+
+Do not use delete (it fucks stuff up), use backspace
