@@ -9,6 +9,7 @@
   - or change according to doc
     - Doc suggest '@'
       - https://pyautogui.readthedocs.io/en/latest/keyboard.html
+- Assumes a folder named Documents in finder 
 
 ## User
 
@@ -18,9 +19,9 @@ Password:notion2024
 
 ## Use case
 - [x] Notes
-- [ ] Bullet points
+- [x] Bullet points
 - [ ] Text block
-- [ ] Insert attachement
+- [x] Insert attachement
 - [ ] math equation
 - [ ] code block
 
