@@ -189,13 +189,12 @@ def material():
     pyautogui.click()
     pyautogui.moveTo(1025, 645)  # Move to "open"-button 
     pyautogui.click()
-    time.sleep(2)
+    time.sleep(4)
     pyautogui.scroll(-10)
     time.sleep(0.1)
     pyautogui.moveTo(450, 645) # Line under imported file i
     time.sleep(0.1)
     pyautogui.click()
-    pyautogui.press('enter')
     pyautogui.write("/pa", interval=0.1)
     pyautogui.press('enter')
     pyautogui.write("Question to professor - steering meeting", interval=0.1)
@@ -220,7 +219,6 @@ def material():
 
 
 
-
 # Assumes macOS
 def main():
     login()
@@ -228,7 +226,7 @@ def main():
     create_page()
     todo_list()
     material()
-    cleanup()
+    # cleanup()
 
 
 main()
