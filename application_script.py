@@ -215,17 +215,21 @@ def material():
     pyautogui.press('enter')
     pyautogui.write("When is the deadline?", interval=0.1)
 
+def go_back():
+    pyautogui.keyDown('command')
+    pyautogui.write('[')
+    pyautogui.keyUp('command')
 
 
 
 
 # Assumes macOS
 def main():
-    login()
-    new_page()
-    create_page()
-    todo_list()
-    material()
+    # login()
+    # new_page()
+    # create_page()
+    # todo_list()
+    # material()
     # cleanup()
 
 
