@@ -20,7 +20,7 @@ Password:notion2024
 ## Use case
 - [x] Notes
 - [x] Bullet points
-- [ ] Text block
+- [x] Text block
 - [x] Insert attachement
 - [ ] math equation
 - [ ] code block
