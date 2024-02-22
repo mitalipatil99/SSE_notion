@@ -10,6 +10,7 @@
     - Doc suggest '@'
       - https://pyautogui.readthedocs.io/en/latest/keyboard.html
 - Assumes a folder named Documents in finder 
+- Download paper.pdf and save it on your desktop (make sure this is the only file on the desktop/or the coorinates may be changed)
 
 ## User
 
