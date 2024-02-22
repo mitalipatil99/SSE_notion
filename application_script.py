@@ -216,21 +216,42 @@ def material():
     pyautogui.write("When is the deadline?", interval=0.1)
 
 def go_back():
+    time.sleep(2)
     pyautogui.keyDown('command')
     pyautogui.write('[')
     pyautogui.keyUp('command')
+    time.sleep(1)
+    pyautogui.scroll(30)
+    time.sleep(1)
+
+
+def math():
+    time.sleep(1)
+    pyautogui.moveTo(999, 830) # Move to last bullet point
+    time.sleep(0.5)
+    pyautogui.click()
+    pyautogui.press('enter')
+    pyautogui.write('Milliampere hour (mAh)', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('backspace')
+    pyautogui.write('/eq', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write('W=1000mAh×3.8V=3800mWh=3.8Wh=3.8×3600J=13680J', interval=0.1)
+    pyautogui.press('enter')
 
 
 
 
 # Assumes macOS
 def main():
-    # login()
-    # new_page()
-    # create_page()
-    # todo_list()
-    # material()
-    # cleanup()
-
+    login()
+    new_page()
+    create_page()
+    todo_list()
+    material()
+    go_back()
+    math()
+    cleanup()
+    
 
 main()
