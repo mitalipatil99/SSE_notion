@@ -40,6 +40,13 @@ def login():
 
 def cleanup():
     time.sleep(1)
+    pyautogui.moveTo(1425, 22)  # Move to ... /the right corner
+    pyautogui.click()   
+    for i in range(12):
+        pyautogui.press('down')
+    pyautogui.press('enter')
+
+    time.sleep(1)
     subprocess.run(["osascript", "-e", fullScreen]) # Open full screen
     time.sleep(3)
     pyautogui.moveTo(191, 102)
@@ -47,7 +54,7 @@ def cleanup():
     pyautogui.click()
 
     time.sleep(1)
-    pyautogui.moveTo(147, 391)
+    pyautogui.moveTo(147, 340)  # Move to log out-button
     time.sleep(1)
     pyautogui.click()
 
@@ -239,7 +246,40 @@ def math():
     pyautogui.write('W=1000mAh×3.8V=3800mWh=3.8Wh=3.8×3600J=13680J', interval=0.1)
     pyautogui.press('enter')
 
+def code():
+    time.sleep(5)   # Takes aprox. 5sec to write the equation
+    pyautogui.scroll(-30)
+    pyautogui.moveTo(660, 417) # Move to last checkbox 
+    pyautogui.click()
+    time.sleep(0.1)
+    pyautogui.press('enter')
+    pyautogui.write('Ask Mitali to review code below', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('enter')
+    pyautogui.write('/co', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write('def function():', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('tab')
+    pyautogui.write('i = 1', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('tab')
+    pyautogui.write('for i in range(2):', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+    pyautogui.write('i+=1', interval=0.1)
+    pyautogui.moveTo(516, 503) # Move language drop-down
+    pyautogui.click()
+    time.sleep(0.1)
+    pyautogui.write('py', interval=0.1)
+    time.sleep(0.1)
+    pyautogui.press('enter')
 
+def check_todo():
+    time.sleep(1)
+    pyautogui.moveTo(454, 372) # Move to project todo
+    pyautogui.click()
 
 
 # Assumes macOS
@@ -251,6 +291,8 @@ def main():
     material()
     go_back()
     math()
+    code()
+    check_todo()
     cleanup()
     
 
