@@ -23,7 +23,6 @@ end tell
 # This function assumes 
 # * Static coordinates for buttons 
 def login():
-    subprocess.run(["open", "/Applications/Notion.app"])
     subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
 
     time.sleep(1)
