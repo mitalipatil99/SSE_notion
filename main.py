@@ -21,7 +21,7 @@ def warm_up_dummy_task():
     execution_time = end_time - start_time
     print(f"Dummy task executed in {execution_time:.2f} seconds")
 
-    # Approach 2: Run same energy tests and discard results 1and 2 
+    # Approach 2: Run same energy tests and discard results 1and 2  # to be decided which one to use 
     print("Warming up with energy tests (discard results in the end)...")
     # Code for running energy tests goes here
 
