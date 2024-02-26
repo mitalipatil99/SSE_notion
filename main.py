@@ -16,7 +16,7 @@ def warm_up_dummy_task():
 
     # Approach 1: Run Fibonacci sequence
     start_time = time.time()
-    result = fibonacci(30)  # Adjust the parameter for the desired Fibonacci number
+    result = fibonacci(30)  # desired Fibonacci number
     end_time = time.time()
     execution_time = end_time - start_time
     print(f"Dummy task executed in {execution_time:.2f} seconds")

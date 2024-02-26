@@ -36,9 +36,53 @@ Do not use delete (it fucks stuff up), use backspace
 
 
 ## BLOGPOST STUFF 
-As students we use various note taking softwares often, but which software is an environmantally conscious choice? In this blogpost we answer this question by comparing the energy consumption between the desktop versions of evernote and notion. We present arguments on why one might be better sustainable software choice than the other.
+As students we use various note taking softwares often, but which software is an environmantally conscious choice? In this blogpost we answer this question by comparing the energy consumption between the desktop version and the web version of notion. We present arguments on why one might be a better choice than the other.
 
-Most students at TU Delft use either evernote or Notion and as a part of a sustainable university, we share our insights into how we can contribute to lesser carbon emissions by just changing the note taking application we use on a day to day basis.
+At TU Delft many students create, collaborate and organise their notes on Notion. This can be attributed to the fact that Notion allows for creating databases, integration with google drive, github and its use of KaTeX library to render math equations. 
+
+While sustainiabilty might not be the integral aspect of the Notion software we can make it an afterthought and use it in a manner where we reduce overall energy consumption or save your laptops energy.
+
+RQ : Is there a diffrence in energy consumption of Notion on desktop vs browser. 
+
+Methodology :
+We conducted two different experiments (login to logout and just making a database/creating an empty page) on two different modes of operation of notion, one mode being desktop and the other mode being notions web application on chrome web browser. We are using the cornell note system template as a use case for both the modes.  We have tried to include all the basic features that users usually use on notion in the workflow pipeline. 
+The experiment flow for notion is :
+open Desktop app on fullscreen -> login using google sign in option(we created a dummy account  for this experiment) -> create a new page using the cornell system template -> write a page title with some basic text -> make a todo list -> ..............#fill it up#...-> write a math equation -> write a piece of code -> check a todo -> logout 
+
+We ran an automated script to open notion on desktop and the web verion on chrome.
+Each of it was run 30 times and to prevent the order of experiments influencing the resulting measurements, the experiments were randomly shuffled.
+For each experiment, we took the following measurements:
+
+
+
+
+machine , os and web browser used. 
+
+
+
+Experiment :
+
+
+Results :
+graphs 
+
+
+Replication:
+
+
+discussion:
+practical implications. 
+
+
+Limitation:
+worth noting the response time on web vs desktop , 
+accesibililty to online vs offline features 
+
+
+
+Conclusion 
+
+
 
 
 
