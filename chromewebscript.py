@@ -13,22 +13,33 @@ end tell
 """
 
 def login():
-    subprocess.run(["open", "/Applications/Google Chrome.app"])
     subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
 
-    # subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
+    time.sleep(1)
+    pyautogui.moveTo(718, 546)  # Move to correct user 
+    time.sleep(1)
+    pyautogui.click()
+    
+    time.sleep(1)
+    pyautogui.write('no', interval=0.1) # Search for notion
+    pyautogui.press('enter')
+    time.sleep(1)
 
-    # time.sleep(1)
-    # pyautogui.moveTo(710, 340)  # Move to on google login button
-    # time.sleep(1)
-    # pyautogui.click()
+    pyautogui.moveTo(1258, 154)  # Move to correct user 
+    time.sleep(1)
+    pyautogui.click()
 
-    # time.sleep(3)
-    # pyautogui.moveTo(700, 550)  # Move to correct google account for login  
-    # time.sleep(1)
-    # pyautogui.click()   
+    time.sleep(1)
+    pyautogui.moveTo(712, 400)  # Login with google 
+    pyautogui.click()
 
-    # time.sleep(5)
+    time.sleep(3)
+    pyautogui.moveTo(700, 550)  # Move to correct google account for login  
+    time.sleep(1)
+    pyautogui.click()  
+
+
+
 
 def main():
     login()
