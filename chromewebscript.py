@@ -175,42 +175,45 @@ def material():
     pyautogui.write("/f", interval=0.1)
     pyautogui.press('enter') 
     time.sleep(0.1)
-    # pyautogui.moveTo(877, 705)  # Move to "Choose a file"-button
-    # time.sleep(0.1)
-    # pyautogui.click()
-    # time.sleep(0.1)
-    # pyautogui.moveTo(390, 460)  # Move to "Desktop" in finder 
-    # time.sleep(0.5)
-    # pyautogui.click()
-    # pyautogui.moveTo(550, 350)  # Move to first element in folder
-    # pyautogui.click()
+    pyautogui.moveTo(829, 752)  # Move to "Choose a file"-button
+    time.sleep(0.1)
+    pyautogui.click()
+    time.sleep(0.1)
+    pyautogui.moveTo(549, 215)  #  Move to first element in folder
+    time.sleep(0.5)
+    pyautogui.click()
+    pyautogui.moveTo(1021, 770)  #Move to "open"-button 
+    pyautogui.click()
     # pyautogui.moveTo(1025, 645)  # Move to "open"-button 
     # pyautogui.click()
-    # time.sleep(4)
-    # pyautogui.scroll(-10)
-    # time.sleep(0.1)
-    # pyautogui.moveTo(450, 645) # Line under imported file i
-    # time.sleep(0.1)
-    # pyautogui.click()
-    # pyautogui.write("/pa", interval=0.1)
-    # pyautogui.press('enter')
-    # pyautogui.write("Question to professor - steering meeting", interval=0.1)
-    # pyautogui.press('enter')
-    # pyautogui.write("/c", interval=0.1)
-    # pyautogui.press('enter')
-    # pyautogui.write("During the steering meeting we will have the chance to ask the professors about our project. We will get some feedback, and overview of how our progress is. The meeting is on @26.02.", interval=0.1)
-    # pyautogui.press('enter')
+    time.sleep(4)
+    pyautogui.scroll(-10)
+    time.sleep(0.1)
+    pyautogui.moveTo(511, 675) # Line under imported file i
+    time.sleep(0.1)
+    pyautogui.click()
+    pyautogui.write("/pa", interval=0.1)
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.write("Question to professor - steering meeting", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write("/c", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write("During the steering meeting we will have the chance to ask the professors about our project. We will get some feedback, and overview of how our progress is. The meeting is on @26.02.", interval=0.1)
+    pyautogui.press('enter')
     # pyautogui.write(".", interval=0.1)
-    # pyautogui.keyDown('shift')
-    # pyautogui.press('enter')
-    # pyautogui.write("Pia will not attend the meeting", interval=0.1)
-    # pyautogui.press('enter')
-    # pyautogui.press('enter')
-    # pyautogui.write("/n", interval=0.1) # notion function for numbered list
-    # pyautogui.press('enter')
-    # pyautogui.write("What is EnergyBridge?", interval=0.1)
-    # pyautogui.press('enter')
-    # pyautogui.write("When is the deadline?", interval=0.1)
+    pyautogui.keyDown('shift')
+    pyautogui.press('enter')
+    pyautogui.write("Pia will not attend the meeting", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('enter')
+    pyautogui.write("/n", interval=0.1) # notion function for numbered list
+    pyautogui.press('enter')
+    pyautogui.write("What is EnergyBridge?", interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write("When is the deadline?", interval=0.1)
+
+
 
 def main():
     # login()
