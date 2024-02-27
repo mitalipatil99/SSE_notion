@@ -219,14 +219,32 @@ def go_back():
     pyautogui.click()
 
 
+def math():
+    time.sleep(1)
+    pyautogui.scroll(-20)
+    pyautogui.moveTo(922, 279) # Move to last bullet point
+    time.sleep(1)
+    pyautogui.click()
+    pyautogui.press('enter')
+    pyautogui.write('Milliampere hour (mAh)', interval=0.1)
+    time.sleep(1)
+    pyautogui.press('enter')
+    pyautogui.press('backspace')
+    pyautogui.write('/eq', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write('W=1000mAh×3.8V=3800mWh=3.8Wh=3.8×3600J=13680J', interval=0.1)
+    pyautogui.press('enter')
+
 
 def main():
     # login()
-    new_page()  
-    create_page()
-    todo_list()
-    material()
-    go_back()
+    # new_page()  
+    # create_page()
+    # todo_list()
+    # material()
+    # go_back()
+    math()
+
 
 
 
