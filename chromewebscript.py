@@ -11,6 +11,12 @@ tell application "System Events"
     keystroke "f" using {control down, command down}
 end tell
 """
+quit = """
+tell application "System Events"
+    keystroke "q" using {command down}
+end tell
+"""
+
 
 def login():
     subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
@@ -101,11 +107,6 @@ def create_page():
     pyautogui.press('backspace')    # Delete content
     pyautogui.moveTo(900, 413)  # What does this do?? remove? 
     pyautogui.click()
-    # pyautogui.moveTo(954, 365)  # Move to heading of page 
-    # time.sleep(1)
-    # pyautogui.click()
-    # time.sleep(1)
-    # Change heading
     for i in range(20):
         pyautogui.press('backspace')
     time.sleep(1)
@@ -273,6 +274,34 @@ def code():
     pyautogui.press('enter')
 
 
+def check_todo():
+    time.sleep(1)
+    pyautogui.moveTo(499, 466) # Move to project todo
+    pyautogui.click()
+
+
+def cleanup():
+    time.sleep(1)
+    pyautogui.moveTo(1413, 144)  # Move to ... /the right corner
+    time.sleep(1)
+    pyautogui.click()   
+    time.sleep(1)
+    pyautogui.moveTo(1245, 511)  # Move to delete
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(2)
+    pyautogui.moveTo(161, 143) # Move to account
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(1)
+    pyautogui.moveTo(125, 321)  # Move to log out-button
+    time.sleep(1)
+    pyautogui.click()
+
+    time.sleep(2)
+    subprocess.run(["osascript", "-e", quit]) # Open full screen
+    subprocess.run(["osascript", "-e", quit]) # Open full screen
+
 
 def main():
     login()
@@ -283,6 +312,8 @@ def main():
     go_back()
     math()
     code()
+    check_todo()
+    cleanup()
 
 
 
