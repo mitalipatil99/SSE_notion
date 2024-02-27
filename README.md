@@ -56,11 +56,33 @@ We conducted two different experiments (login to logout and just making a databa
 The experiment flow for notion is :
 open Desktop app on fullscreen -> login using google sign in option(we created a dummy account for this experiment) -> create a new page using the cornell system template -> write a page title with some basic text -> make a todo list -> ..............#fill it up#...-> write a math equation -> write a piece of code -> check a todo -> logout
 
-We ran an automated script to open notion on desktop and the web verion on chrome.
+We ran an automated script to open notion on desktop and the web version on chrome.
 Each of it was run 30 times and to prevent the order of experiments influencing the resulting measurements, the experiments were randomly shuffled.
-For each experiment, we took the following measurements:
+For each experiment, we took the following measurements:.............
 
-machine , os and web browser used.
+In addition to the experiment measurements, we also provide a baseline measurement to give an idea of how background processes impact the measurements. The baseline measurement is a 60 second measurement with the same settings as in the experimental setup but with no programs open except background processes.
+
+Experimental set up :
+We conducted the experiments on MacBook  ...... with iOS ....machine , os and web browser used. 
+The energy consumption was measured using energybridge (add reference)
+Add experiment software and version table .
+Before executing the experiments it is important to record the state of the system under test so that the state can be kept as consistent as possible between experiments. In addition to the hardware and software specifications above, we made sure that the laptop was in the following state to minimize confounding factors:
+
+Airplane mode turned on (i.e. no Bluetooth, no WiFi, no notifications)
+Power cable plugged in
+No external monitor or other peripherals
+Screen brightness set to 100%
+Screen saver timer turned off
+No other programs open
+Furthermore, the difference in CPU temperature between the first and later experiments may impact the results. We therefore first perform a warm-up routine that calculates fibonacci numbers for 30 seconds to minimize the temperature difference.
+The experiment structure was as follows :
+1) warm up cpu 
+
+
+
+
+
+
 
 Experiment :
 
