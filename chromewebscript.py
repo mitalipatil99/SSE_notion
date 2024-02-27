@@ -216,7 +216,11 @@ def material():
 def go_back():
     time.sleep(2)
     pyautogui.moveTo(350, 147)
+    time.sleep(1)
     pyautogui.click()
+    time.sleep(1)
+    pyautogui.moveTo(1175, 401)
+    time.sleep(1)
 
 
 def math():
@@ -225,7 +229,9 @@ def math():
     pyautogui.moveTo(922, 279) # Move to last bullet point
     time.sleep(1)
     pyautogui.click()
+    time.sleep(1)
     pyautogui.press('enter')
+    time.sleep(1)
     pyautogui.write('Milliampere hour (mAh)', interval=0.1)
     time.sleep(1)
     pyautogui.press('enter')
@@ -236,14 +242,47 @@ def math():
     pyautogui.press('enter')
 
 
+def code():
+    time.sleep(1)   # Takes aprox. 5sec to write the equation
+    pyautogui.scroll(-30)
+    pyautogui.moveTo(660, 500) # Move to last checkbox 
+    pyautogui.click()
+    time.sleep(0.1)
+    pyautogui.press('enter')
+    pyautogui.write('Ask Mitali to review code below', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('enter')
+    pyautogui.write('/co', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.write('def function():', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('tab')
+    pyautogui.write('i = 1', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('tab')
+    pyautogui.write('for i in range(2):', interval=0.1)
+    pyautogui.press('enter')
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+    pyautogui.write('i+=1', interval=0.1)
+    pyautogui.moveTo(560, 569) # Move language drop-down
+    pyautogui.click()
+    time.sleep(0.1)
+    pyautogui.write('py', interval=0.1)
+    time.sleep(0.1)
+    pyautogui.press('enter')
+
+
+
 def main():
-    # login()
-    # new_page()  
-    # create_page()
-    # todo_list()
-    # material()
-    # go_back()
+    login()
+    new_page()  
+    create_page()
+    todo_list()
+    material()
+    go_back()
     math()
+    code()
 
 
 
