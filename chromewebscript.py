@@ -213,6 +213,11 @@ def material():
     pyautogui.press('enter')
     pyautogui.write("When is the deadline?", interval=0.1)
 
+def go_back():
+    time.sleep(2)
+    pyautogui.moveTo(350, 147)
+    pyautogui.click()
+
 
 
 def main():
@@ -221,6 +226,8 @@ def main():
     create_page()
     todo_list()
     material()
+    go_back()
+
 
 
 main()
