@@ -144,11 +144,80 @@ def create_page():
     pyautogui.write('We need to be sustainable', 0.1)
     
 
+def todo_list():
+    time.sleep(3)
+    pyautogui.moveTo(511, 685)  # Move to bottom of screen
+    time.sleep(0.1) 
+    pyautogui.click()
+    pyautogui.write("/h3", interval=0.1)
+    time.sleep(0.1)                 # maybe
+    pyautogui.press('enter') 
+    pyautogui.write("To Do:", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("/t", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("Read the essay paper", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("Ask prof. about the project", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("Plan team meeting", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.press('enter') 
+    pyautogui.press('enter') 
+
+
+def material():
+    time.sleep(2)
+    pyautogui.write("/h3", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("Material:", interval=0.1)
+    pyautogui.press('enter') 
+    pyautogui.write("/f", interval=0.1)
+    pyautogui.press('enter') 
+    time.sleep(0.1)
+    # pyautogui.moveTo(877, 705)  # Move to "Choose a file"-button
+    # time.sleep(0.1)
+    # pyautogui.click()
+    # time.sleep(0.1)
+    # pyautogui.moveTo(390, 460)  # Move to "Desktop" in finder 
+    # time.sleep(0.5)
+    # pyautogui.click()
+    # pyautogui.moveTo(550, 350)  # Move to first element in folder
+    # pyautogui.click()
+    # pyautogui.moveTo(1025, 645)  # Move to "open"-button 
+    # pyautogui.click()
+    # time.sleep(4)
+    # pyautogui.scroll(-10)
+    # time.sleep(0.1)
+    # pyautogui.moveTo(450, 645) # Line under imported file i
+    # time.sleep(0.1)
+    # pyautogui.click()
+    # pyautogui.write("/pa", interval=0.1)
+    # pyautogui.press('enter')
+    # pyautogui.write("Question to professor - steering meeting", interval=0.1)
+    # pyautogui.press('enter')
+    # pyautogui.write("/c", interval=0.1)
+    # pyautogui.press('enter')
+    # pyautogui.write("During the steering meeting we will have the chance to ask the professors about our project. We will get some feedback, and overview of how our progress is. The meeting is on @26.02.", interval=0.1)
+    # pyautogui.press('enter')
+    # pyautogui.write(".", interval=0.1)
+    # pyautogui.keyDown('shift')
+    # pyautogui.press('enter')
+    # pyautogui.write("Pia will not attend the meeting", interval=0.1)
+    # pyautogui.press('enter')
+    # pyautogui.press('enter')
+    # pyautogui.write("/n", interval=0.1) # notion function for numbered list
+    # pyautogui.press('enter')
+    # pyautogui.write("What is EnergyBridge?", interval=0.1)
+    # pyautogui.press('enter')
+    # pyautogui.write("When is the deadline?", interval=0.1)
 
 def main():
     # login()
     new_page()  
     create_page()
+    todo_list()
+    material()
 
 
 main()
