@@ -11,6 +11,7 @@
       - https://pyautogui.readthedocs.io/en/latest/keyboard.html
 - Assumes a folder named Documents in finder 
 - Download paper.pdf and save it on your desktop (make sure this is the only file on the desktop/or the coorinates may be changed)
+- If you choose to use your own notion user you have to have the cornell notes template dowloaded (access thourgh: https://www.notion.so/templates/cornell-notes-system)
 
 ## User
 
