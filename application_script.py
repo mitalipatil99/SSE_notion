@@ -2,11 +2,6 @@
 import time
 import pyautogui
 import subprocess
-import platform
-import os
-
-
-import pyperclip
 
 # script to simulate ctr+cmd+f 
 fullScreen = """
@@ -36,14 +31,13 @@ tell application "Google Chrome"
 end tell
 """
 
-# This function assumes 
-# * Static coordinates for buttons 
+# This function assumes static coordinates for buttons
 def login():
     time.sleep(1)
     subprocess.run(["osascript", "-e", fullScreenC]) # Activate full screen
 
     time.sleep(2)
-    pyautogui.moveTo(718, 546)  # Move to correct user 
+    pyautogui.moveTo(718, 546)  # Move to correct user
     time.sleep(1)
     pyautogui.click()
 
@@ -327,9 +321,6 @@ def cleanup():
 
     
 
-    
-
-# Assumes macOS
 def desktop():
     login()
     new_page()
