@@ -283,16 +283,7 @@ def check_todo():
     pyautogui.click()
 
 
-def cleanup():
-    time.sleep(1)
-    pyautogui.moveTo(1413, 144)  # Move to ... /the right corner
-    time.sleep(1)
-    pyautogui.click()   
-    time.sleep(1)
-    pyautogui.moveTo(1245, 511)  # Move to delete
-    time.sleep(1)
-    pyautogui.click()
-    time.sleep(2)
+def logout():
     pyautogui.moveTo(161, 143) # Move to account
     time.sleep(1)
     pyautogui.click()
@@ -305,6 +296,20 @@ def cleanup():
     subprocess.run(["osascript", "-e", quit]) 
     subprocess.run(["osascript", "-e", quit]) 
 
+def cleanup():
+    login()
+    time.sleep(1)
+    pyautogui.moveTo(1413, 144)  # Move to ... /the right corner
+    time.sleep(1)
+    pyautogui.click()   
+    time.sleep(1)
+    pyautogui.moveTo(1245, 511)  # Move to delete
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(2)
+    logout()
+
+
 def web():
     login()
     new_page()  
@@ -315,8 +320,7 @@ def web():
     math()
     code()
     check_todo()
-    cleanup()
-
+    logout()
 
 if __name__ == "__main__":
     web()

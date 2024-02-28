@@ -74,7 +74,16 @@ def experiment():
         result
 
         # Wait for 200 seconds before the next iteration
-        time.sleep(270) 
+        time.sleep(220) 
+
+        # Cleanup between iterations
+        time.sleep(30)
+        if script.__name__ == 'web':
+            application_script.cleanup()
+        if script.__name__ == 'desktop':
+            chromewebscript.cleanup()
+        time.sleep(30)
+
 
         subprocess.run(["osascript", "-e", quit_terminal]) # quite the terminal before next iteration
 
