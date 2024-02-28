@@ -20,6 +20,7 @@
   - macOS Sanoma 14.2.1 (23C71)
   - Display: 13,3-inch (2560 × 1600)
 
+
 ## User
 
 To test the user, we have created a dummy-user.
@@ -32,8 +33,14 @@ Password:notion2024
 - [x] Bullet points
 - [x] Text block
 - [x] Insert attachement
-- [ ] math equation
-- [ ] code block
+- [x] math equation
+- [x] code block
+
+## EnergiBridge
+
+- Download the repository from: https://github.com/tdurieux/energibridge
+- CD into the folder that holds the energibridge exec file (energibridge-v0.0.4-aarch64-apple-darwin )
+- 
 
 ## Marks
 
@@ -63,7 +70,7 @@ For each experiment, we took the following measurements:.............
 In addition to the experiment measurements, we also provide a baseline measurement to give an idea of how background processes impact the measurements. The baseline measurement is a 60 second measurement with the same settings as in the experimental setup but with no programs open except background processes.
 
 Experimental set up :
-We conducted the experiments on MacBook  ...... with iOS ....machine , os and web browser used. 
+We conducted the experiments on MacBook ...... with iOS ....machine , os and web browser used.
 The energy consumption was measured using energybridge (add reference)
 Add experiment software and version table .
 Before executing the experiments it is important to record the state of the system under test so that the state can be kept as consistent as possible between experiments. In addition to the hardware and software specifications above, we made sure that the laptop was in the following state to minimize confounding factors:
@@ -76,13 +83,8 @@ Screen saver timer turned off
 No other programs open
 Furthermore, the difference in CPU temperature between the first and later experiments may impact the results. We therefore first perform a warm-up routine that calculates fibonacci numbers for 30 seconds to minimize the temperature difference.
 The experiment structure was as follows :
-1) warm up cpu 
 
-
-
-
-
-
+1. warm up cpu
 
 Experiment :
 

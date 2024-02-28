@@ -1,7 +1,9 @@
+#!/usr/bin/env python3
 import subprocess
 import time
 import webbrowser
 import pyautogui
+import chromewebscript
 
 # script to simulate ctr+cmd+f 
 fullScreen = """
@@ -19,6 +21,7 @@ end tell
 
 
 def login():
+    subprocess.run(["open", "/Applications/Google chrome.app"])
     subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
 
     time.sleep(1)
@@ -299,11 +302,10 @@ def cleanup():
     pyautogui.click()
 
     time.sleep(2)
-    subprocess.run(["osascript", "-e", quit]) # Open full screen
-    subprocess.run(["osascript", "-e", quit]) # Open full screen
+    subprocess.run(["osascript", "-e", quit]) 
+    subprocess.run(["osascript", "-e", quit]) 
 
-
-def main():
+def web():
     login()
     new_page()  
     create_page()
@@ -316,6 +318,5 @@ def main():
     cleanup()
 
 
-
-
-main()
+if __name__ == "__main__":
+    web()

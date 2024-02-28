@@ -1,8 +1,10 @@
+#!/usr/bin/env python
 import time
 import pyautogui
 import subprocess
 import platform
 import os
+
 
 import pyperclip
 
@@ -14,16 +16,41 @@ tell application "System Events"
     keystroke "f" using {control down, command down}
 end tell
 """
-quit = """
+fullScreenC = """
 tell application "System Events"
-    keystroke "q" using {command down}
+    tell application "Google Chrome" to activate
+    delay 1
+    keystroke "f" using {control down, command down}
+end tell
+"""
+
+quit = """
+tell application "Notion"
+    quit
+end tell
+"""
+
+quit_c = """
+tell application "Google Chrome"
+    quit
 end tell
 """
 
 # This function assumes 
 # * Static coordinates for buttons 
 def login():
+    time.sleep(1)
+    subprocess.run(["osascript", "-e", fullScreenC]) # Activate full screen
+
+    time.sleep(2)
+    pyautogui.moveTo(718, 546)  # Move to correct user 
+    time.sleep(1)
+    pyautogui.click()
+
+    time.sleep(2)
+    subprocess.run(["open", "/Applications/Notion.app"])
     subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
+    
 
     time.sleep(1)
     pyautogui.moveTo(710, 340)  # Move to on google login button
@@ -43,10 +70,10 @@ def cleanup():
     pyautogui.click()   
     for i in range(12):
         pyautogui.press('down')
-    pyautogui.press('enter')
+    pyautogui.press('enter')           
 
     time.sleep(1)
-    subprocess.run(["osascript", "-e", fullScreen]) # Open full screen
+    subprocess.run(["osascript", "-e", fullScreen]) # exit full screen to be able to log out
     time.sleep(3)
     pyautogui.moveTo(191, 102)
     time.sleep(1)
@@ -58,8 +85,11 @@ def cleanup():
     pyautogui.click()
 
     time.sleep(2)
-    subprocess.run(["osascript", "-e", quit]) # Open full screen
-    # Should write a code to delete the files created
+    subprocess.run(["osascript", "-e", quit]) # Quit the notion application
+    time.sleep(1)
+    subprocess.run(["osascript", "-e", quit_c]) # Open full screen
+
+    
 
 def new_page():
     # Create new page
@@ -74,7 +104,17 @@ def new_page():
     pyautogui.click()
     time.sleep(1)
 
-    pyautogui.moveTo(188, 120)  # Move to searchbar
+    pyautogui.moveTo(339, 118)  # Move to "work"-dropdown  
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(1)
+
+    pyautogui.moveTo(333, 201)  # Move to School
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(1)
+
+    pyautogui.moveTo(266, 171)  # Move to searchbar
     time.sleep(1)
     pyautogui.click()
     time.sleep(1)
@@ -82,7 +122,7 @@ def new_page():
     pyautogui.write('notes', interval=0.1)
     time.sleep(1)
 
-    pyautogui.moveTo(212, 215)  # Move to "Cornell"-button  
+    pyautogui.moveTo(233, 304)  # Move to "Cornell"-button  
     time.sleep(1)
     pyautogui.click()
     time.sleep(1)
@@ -111,7 +151,7 @@ def create_page():
     pyautogui.mouseDown()
 
     # Get the class notes template 
-    pyautogui.moveTo(954, 365)  # Move to "Cornell notes system"-header 
+    pyautogui.moveTo(954, 365)  # Move to heading section
     time.sleep(1)
     pyautogui.click()
     time.sleep(1)
@@ -121,9 +161,9 @@ def create_page():
     time.sleep(1)
     pyautogui.write("CS4415 - Sustainable Software Engineering", interval=0.1)
     time.sleep(2)
-    pyautogui.scroll(-100)
+    pyautogui.scroll(-40)
     time.sleep(1)
-    pyautogui.moveTo(750, 240)  # Move to "Date"-header 
+    pyautogui.moveTo(764, 240)  # Move to "Date"-header 
     pyautogui.click()
     time.sleep(1)
     pyautogui.press('backspace')
@@ -282,7 +322,7 @@ def check_todo():
 
 
 # Assumes macOS
-def main():
+def desktop():
     login()
     new_page()
     create_page()
@@ -293,6 +333,6 @@ def main():
     code()
     check_todo()
     cleanup()
-    
 
-main()
+if __name__ == "__main__":
+    desktop()
