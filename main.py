@@ -89,5 +89,5 @@ def experiment():
 
 
 if __name__ == '__main__':
-    warm_up
+    warm_up()
     experiment()
