@@ -64,32 +64,6 @@ def login():
 
     time.sleep(5)
 
-def cleanup():
-    time.sleep(1)
-    pyautogui.moveTo(1425, 22)  # Move to ... /the right corner
-    pyautogui.click()   
-    for i in range(12):
-        pyautogui.press('down')
-    pyautogui.press('enter')           
-
-    time.sleep(1)
-    subprocess.run(["osascript", "-e", fullScreen]) # exit full screen to be able to log out
-    time.sleep(3)
-    pyautogui.moveTo(191, 102)
-    time.sleep(1)
-    pyautogui.click()
-
-    time.sleep(1)
-    pyautogui.moveTo(147, 340)  # Move to log out-button
-    time.sleep(1)
-    pyautogui.click()
-
-    time.sleep(2)
-    subprocess.run(["osascript", "-e", quit]) # Quit the notion application
-    time.sleep(1)
-    subprocess.run(["osascript", "-e", quit_c]) # Open full screen
-
-    
 
 def new_page():
     # Create new page
@@ -321,6 +295,40 @@ def check_todo():
     pyautogui.click()
 
 
+def logout():
+    time.sleep(1)
+    subprocess.run(["osascript", "-e", fullScreen]) # exit full screen to be able to log out
+    time.sleep(3)
+    pyautogui.moveTo(191, 102)
+    time.sleep(1)
+    pyautogui.click()
+
+    time.sleep(1)
+    pyautogui.moveTo(147, 340)  # Move to log out-button
+    time.sleep(1)
+    pyautogui.click()
+
+    time.sleep(2)
+    subprocess.run(["osascript", "-e", quit]) # Quit the notion application
+    time.sleep(1)
+    subprocess.run(["osascript", "-e", quit_c]) # Open full screen
+
+
+# Cleanup used in cleanup between iterations of experiment (not in experiment piepline)
+def cleanup():
+    login()
+    time.sleep(1)
+    pyautogui.moveTo(1425, 22)  # Move to ... /the right corner
+    pyautogui.click()   
+    for i in range(12):
+        pyautogui.press('down') # Move to delete button
+    pyautogui.press('enter')    # Delete page 
+    logout() 
+
+    
+
+    
+
 # Assumes macOS
 def desktop():
     login()
@@ -332,7 +340,7 @@ def desktop():
     math()
     code()
     check_todo()
-    cleanup()
+    logout()
 
 if __name__ == "__main__":
     desktop()
