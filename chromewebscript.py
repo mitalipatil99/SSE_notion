@@ -298,7 +298,7 @@ def logout():
 
 def cleanup():
     login()
-    time.sleep(1)
+    time.sleep(4)
     pyautogui.moveTo(1413, 144)  # Move to ... /the right corner
     time.sleep(1)
     pyautogui.click()   
