@@ -17,23 +17,16 @@ def fibonacci(n):
 def warm_up():
     """Warm up by running a dummy CPU-intensive task."""
     print("Warming up with dummy task...")
-
-    # Approach 1: Run Fibonacci sequence
     start_time = time.time()
-    result = fibonacci(30)  # desired Fibonacci number
-    end_time = time.time()
-    execution_time = end_time - start_time
-    print(f"Dummy task executed in {execution_time:.2f} seconds")
-
+    r = 0
+    i = 0
+    while time.time() - start_time < 60:
+        r = fibonacci(30)
+        i += 1
+    else:
+        print(f"Warmup number: {i}th fibonacci number is {r}")
     print("Warm-up completed!")
 
-
-# def run_script(script_function, count):
-#     try:
-#         time.sleep(3)  # Wait for 3 seconds before starting the script
-#         script_function()  # Execute the script
-#     except Exception as e:
-#         print(f"Error running {script_function.__name__}: {e}")
 
 quit_terminal = """
 tell application "Terminal"
