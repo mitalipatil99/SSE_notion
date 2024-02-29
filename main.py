@@ -26,6 +26,7 @@ def warm_up():
     else:
         print(f"Warmup number: {i}th fibonacci number is {r}")
     print("Warm-up completed!")
+    time.sleep(2)
 
 
 quit_terminal = """
@@ -70,15 +71,13 @@ def experiment():
         time.sleep(220) 
 
         # Cleanup between iterations
-        time.sleep(30)
-        if script.__name__ == 'web':
-            application_script.cleanup()
         if script.__name__ == 'desktop':
+            application_script.cleanup()
+        if script.__name__ == 'web':
             chromewebscript.cleanup()
-        time.sleep(30)
-
-
+        
         subprocess.run(["osascript", "-e", quit_terminal]) # quite the terminal before next iteration
+        time.sleep(60)  # Sleep for 60 sec between iterations
 
 
 if __name__ == '__main__':
