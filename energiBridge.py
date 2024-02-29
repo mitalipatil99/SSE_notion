@@ -15,10 +15,10 @@ def open_terminal():
     subprocess.run(command, shell=True)
 
 def generate_command(script_function, count, total_count):
-    if script_function == 'web':
+    if script_function == 'desktop':
         command = f"./energibridge -o {script_function}_{count}_{total_count}.csv --summary /Users/piaasbjornsen/Documents/V2024/SSE/SSE_notion/application_script.py"
         return command
-    if script_function == 'desktop':
+    if script_function == 'web':
         command = f"./energibridge -o {script_function}_{count}_{total_count}.csv --summary /Users/piaasbjornsen/Documents/V2024/SSE/SSE_notion/chromewebscript.py"
         return command
 
