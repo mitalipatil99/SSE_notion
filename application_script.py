@@ -34,7 +34,7 @@ end tell
 # This function assumes static coordinates for buttons
 def login():
     time.sleep(1)
-    subprocess.run(["osascript", "-e", fullScreenC]) # Activate full screen
+    subprocess.run(["osascript", "-e", fullScreenC]) # Open chrome and activate full screen
 
     time.sleep(2)
     pyautogui.moveTo(718, 546)  # Move to correct user
@@ -46,8 +46,8 @@ def login():
     subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
     
 
-    time.sleep(1)
-    pyautogui.moveTo(710, 340)  # Move to on google login button
+    time.sleep(3)
+    pyautogui.moveTo(726, 374)  # Move to on google login button
     time.sleep(1)
     pyautogui.click()
 
@@ -65,37 +65,35 @@ def new_page():
     pyautogui.keyDown('command')            # cmd+n = new page
     pyautogui.write('n', interval=0.1)
     pyautogui.keyUp('command')
+    time.sleep(2)
+    pyautogui.moveTo(440, 393)  # Move to "template"-dropdown  
+    pyautogui.click()
     time.sleep(1)
 
-    pyautogui.moveTo(366, 517)  # Move to "templates"-button  
+    pyautogui.moveTo(208, 106)  # Move to "work"-dropdown  
     time.sleep(1)
     pyautogui.click()
     time.sleep(1)
 
-    pyautogui.moveTo(339, 118)  # Move to "work"-dropdown  
+    pyautogui.moveTo(254, 169)  # Move to School
     time.sleep(1)
     pyautogui.click()
     time.sleep(1)
 
-    pyautogui.moveTo(333, 201)  # Move to School
+    pyautogui.moveTo(222, 148)  # Move to searchbar
     time.sleep(1)
     pyautogui.click()
     time.sleep(1)
 
-    pyautogui.moveTo(266, 171)  # Move to searchbar
+    pyautogui.write('notes', 0.1)
+    time.sleep(2)
+
+    pyautogui.moveTo(207, 245)  # Move to "Cornell"-button  
     time.sleep(1)
     pyautogui.click()
-    time.sleep(1)
+    time.sleep(2)
 
-    pyautogui.write('notes', interval=0.1)
-    time.sleep(1)
-
-    pyautogui.moveTo(233, 304)  # Move to "Cornell"-button  
-    time.sleep(1)
-    pyautogui.click()
-    time.sleep(1)
-
-    pyautogui.moveTo(1170, 670)  # Move to get template
+    pyautogui.moveTo(1225, 732)  # Move to get template
     pyautogui.click()
     time.sleep(1)
 
@@ -104,23 +102,18 @@ def create_page():
     # Delete the explanation 
     pyautogui.scroll(-100)
     time.sleep(1)
-    pyautogui.moveTo(365, 123)  # Move to "Cornell notes system"-header 
+    pyautogui.moveTo(411, 203)  # Move to left corner
     time.sleep(0.1)
     pyautogui.mouseDown()
     time.sleep(1)
-    pyautogui.moveTo(1380, 153)  # Move to "Cornell notes system"-header 
+    pyautogui.moveTo(929, 8)  # Move to right corner
     time.sleep(1)
-    pyautogui.scroll(100)
-    time.sleep(1)
+    pyautogui.moveTo(1283, 78)  # Move to top right corner
+    time.sleep(2)
     pyautogui.mouseUp()
     time.sleep(1)
     pyautogui.press('backspace')
-    pyautogui.moveTo(365, 123)  # Move to "Cornell notes system"-header 
-    pyautogui.mouseDown()
-
-    # Get the class notes template 
-    pyautogui.moveTo(954, 365)  # Move to heading section
-    time.sleep(1)
+    pyautogui.moveTo(887, 288)  # Move to "Cornell notes system"-header 
     pyautogui.click()
     time.sleep(1)
     # Write heading
@@ -131,22 +124,22 @@ def create_page():
     time.sleep(2)
     pyautogui.scroll(-40)
     time.sleep(1)
-    pyautogui.moveTo(764, 240)  # Move to "Date"-header 
+    pyautogui.moveTo(737, 330)  # Move to "Date"-header 
     pyautogui.click()
     time.sleep(1)
     pyautogui.press('backspace')
-    time.sleep(0.1) 
-    pyautogui.write("@t", interval=0.1)
-    time.sleep(0.1) 
+    time.sleep(1) 
+    pyautogui.write("@t", 0.1)
+    time.sleep(1) 
     pyautogui.press('enter') 
-    pyautogui.moveTo(518, 306)  # Move to "Topic"-header 
+    pyautogui.moveTo(560, 380)  # Move to "Topic"-header 
     time.sleep(1)
     pyautogui.click()
-    time.sleep(0.5)
+    time.sleep(1)
     pyautogui.write('Green Fintech', 0.1)
     
     time.sleep(1) 
-    pyautogui.moveTo(785, 470)  # Move to bullet points
+    pyautogui.moveTo(760, 509)  # Move to bullet points
     time.sleep(1)
     pyautogui.click()
     time.sleep(1)
@@ -163,15 +156,15 @@ def create_page():
 
 def todo_list():
     time.sleep(3)
-    pyautogui.moveTo(500, 675)  # Move to bottom of screen
-    time.sleep(0.1) 
+    pyautogui.moveTo(550, 660)  # Move to bottom of screen
+    time.sleep(1) 
     pyautogui.click()
-    pyautogui.write("/h3", interval=0.1)
-    time.sleep(0.1)                 # maybe
+    pyautogui.write("/h3", 0.1)
+    time.sleep(1)                
     pyautogui.press('enter') 
-    pyautogui.write("To Do:", interval=0.1)
+    pyautogui.write("To Do:", 0.1)
     pyautogui.press('enter') 
-    pyautogui.write("/t", interval=0.1)
+    pyautogui.write("/t", 0.1)
     pyautogui.press('enter') 
     pyautogui.write("Read the essay paper", interval=0.1)
     pyautogui.press('enter') 
@@ -192,12 +185,12 @@ def material():
     pyautogui.write("/f", interval=0.1)
     pyautogui.press('enter') 
     time.sleep(0.1)
-    pyautogui.moveTo(877, 705)  # Move to "Choose a file"-button
+    pyautogui.moveTo(850, 740)  # Move to "Choose a file"-button
     time.sleep(0.1)
     pyautogui.click()
-    time.sleep(0.1)
-    pyautogui.moveTo(390, 460)  # Move to "Desktop" in finder 
-    time.sleep(0.5)
+    time.sleep(1)
+    pyautogui.moveTo(422, 460)  # Move to "Desktop" in finder 
+    time.sleep(1)
     pyautogui.click()
     pyautogui.moveTo(550, 350)  # Move to first element in folder
     pyautogui.click()
@@ -205,10 +198,11 @@ def material():
     pyautogui.click()
     time.sleep(4)
     pyautogui.scroll(-10)
-    time.sleep(0.1)
-    pyautogui.moveTo(450, 645) # Line under imported file i
-    time.sleep(0.1)
+    time.sleep(1)
+    pyautogui.moveTo(566, 657) # Line under imported file i
+    time.sleep(1)
     pyautogui.click()
+    time.sleep(1)
     pyautogui.write("/pa", interval=0.1)
     pyautogui.press('enter')
     pyautogui.write("Question to professor - steering meeting", interval=0.1)
@@ -234,31 +228,31 @@ def go_back():
     pyautogui.keyDown('command')
     pyautogui.write('[')
     pyautogui.keyUp('command')
-    time.sleep(1)
-    pyautogui.scroll(30)
+    time.sleep(2)
+    pyautogui.scroll(30)     # Scroll to top of page
     time.sleep(1)
 
 
 def math():
     time.sleep(1)
-    pyautogui.moveTo(999, 830) # Move to last bullet point
-    time.sleep(0.5)
+    pyautogui.moveTo(942, 672) # Move to last bullet point
+    time.sleep(1)
     pyautogui.click()
     pyautogui.press('enter')
-    pyautogui.write('Milliampere hour (mAh)', interval=0.1)
+    pyautogui.write('Milliampere hour (mAh)', 0.1)
     pyautogui.press('enter')
     pyautogui.press('backspace')
     pyautogui.write('/eq', interval=0.1)
     pyautogui.press('enter')
-    pyautogui.write('W=1000mAh×3.8V=3800mWh=3.8Wh=3.8×3600J=13680J', interval=0.1)
+    pyautogui.write('W=1000mAh×3.8V=3800mWh=3.8Wh=3.8×3600J=13680J', 0.1)
     pyautogui.press('enter')
 
 def code():
     time.sleep(5)   # Takes aprox. 5sec to write the equation
     pyautogui.scroll(-30)
-    pyautogui.moveTo(660, 417) # Move to last checkbox 
+    pyautogui.moveTo(690, 470) # Move to last checkbox 
     pyautogui.click()
-    time.sleep(0.1)
+    time.sleep(1)
     pyautogui.press('enter')
     pyautogui.write('Ask Mitali to review code below', interval=0.1)
     pyautogui.press('enter')
@@ -276,47 +270,47 @@ def code():
     pyautogui.press('tab')
     pyautogui.press('tab')
     pyautogui.write('i+=1', interval=0.1)
-    pyautogui.moveTo(516, 503) # Move language drop-down
+    pyautogui.moveTo(560, 530) # Move language drop-down
     pyautogui.click()
-    time.sleep(0.1)
+    time.sleep(2)
     pyautogui.write('py', interval=0.1)
-    time.sleep(0.1)
+    time.sleep(2)
     pyautogui.press('enter')
 
 def check_todo():
     time.sleep(1)
-    pyautogui.moveTo(454, 372) # Move to project todo
+    pyautogui.moveTo(499, 432) # Move to project todo
     pyautogui.click()
 
 
 def logout():
     time.sleep(1)
-    subprocess.run(["osascript", "-e", fullScreen]) # exit full screen to be able to log out
+    # subprocess.run(["osascript", "-e", fullScreen]) # exit full screen to be able to log out
     time.sleep(3)
-    pyautogui.moveTo(191, 102)
+    pyautogui.moveTo(91, 11)
     time.sleep(1)
     pyautogui.click()
 
     time.sleep(1)
-    pyautogui.moveTo(147, 340)  # Move to log out-button
+    pyautogui.moveTo(152, 205)  # Move to log out-button
     time.sleep(1)
     pyautogui.click()
 
     time.sleep(2)
     subprocess.run(["osascript", "-e", quit]) # Quit the notion application
     time.sleep(1)
-    subprocess.run(["osascript", "-e", quit_c]) # Open full screen
+    subprocess.run(["osascript", "-e", quit_c]) # Quit chrome
 
 
 # Cleanup used in cleanup between iterations of experiment (not in experiment piepline)
 def cleanup():
     login()
     time.sleep(1)
-    pyautogui.moveTo(1425, 22)  # Move to ... /the right corner
+    pyautogui.moveTo(190, 211)  # Move to ... /the right corner
     pyautogui.click()   
-    for i in range(12):
-        pyautogui.press('down') # Move to delete button
-    pyautogui.press('enter')    # Delete page 
+    time.sleep(1)
+    pyautogui.moveTo(325, 385)  # Move to ... /the right corner
+    pyautogui.click()   
     logout() 
 
     
@@ -334,4 +328,4 @@ def desktop():
     logout()
 
 if __name__ == "__main__":
-    desktop()
+        desktop()
