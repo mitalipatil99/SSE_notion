@@ -14,9 +14,7 @@ def load_data():
     # Load the data from the csv files
     desktop_data = [np.genfromtxt(f'{path}/{f}', delimiter=',', skip_header=1) for f in desktop_files]
     web_data = [np.genfromtxt(f'{path}/{f}', delimiter=',', skip_header=1) for f in web_files]
-    desktop_power = extract_power(desktop_data)
-    web_power = extract_power(web_data)
-    return [desktop_power, web_power]
+    return [desktop_data, web_data]
 
 
 def extract_power(dataset):
@@ -66,6 +64,37 @@ def make_violin_plot(data_to_plot):
     fig.savefig("plots/violin_plot.svg")
 
 
+def make_time_series_plot(data):
+    desktop_data = data[0]
+    web_data = data[1]
+    # create two plots under each other
+    fig, ax = plt.subplots(2, 1)
+    for data_set in desktop_data:
+        ax[0].plot(data_set[:, 18])
+
+    ax[0].set_title("Desktop")
+    ax[0].set_ylabel("Power (W)")
+    ax[0].set_xlabel("Time (s)")
+    ax[0].xaxis.set_ticks(np.arange(0, 2001, 250))
+    ax[0].xaxis.set_ticklabels(np.arange(0, 201, 25).round(1))
+
+    # create more space between the two plots
+    plt.subplots_adjust(hspace=0.5)
+    for data_set in web_data:
+        ax[1].plot(data_set[:, 18])
+    ax[1].set_title("Web")
+    ax[1].set_ylabel("Power (W)")
+    ax[1].set_xlabel("Time (s)")
+    ax[1].xaxis.set_ticks(np.arange(0, 2001, 250))
+    ax[1].xaxis.set_ticklabels(np.arange(0, 201, 25).round(1))
+
+    fig.savefig("plots/time_series.svg")
+
+
 data = load_data()
-make_violin_plot(data)
-print(data)
+desktop_power = extract_power(data[0])
+web_power = extract_power(data[1])
+make_violin_plot([desktop_power, web_power])
+
+make_time_series_plot(data)
+
