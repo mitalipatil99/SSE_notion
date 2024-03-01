@@ -24,7 +24,7 @@ def login():
     subprocess.run(["open", "/Applications/Google chrome.app"])
     subprocess.run(["osascript", "-e", fullScreen]) # Activate full screen
 
-    time.sleep(1)
+    time.sleep(2)
     pyautogui.moveTo(718, 546)  # Move to correct user 
     time.sleep(1)
     pyautogui.click()
@@ -47,7 +47,7 @@ def login():
     time.sleep(1)
     pyautogui.click() 
 
-    time.sleep(3)
+    time.sleep(4)
     pyautogui.moveTo(844, 777)  # Move to pop up
     time.sleep(1)
     pyautogui.click()
@@ -57,7 +57,7 @@ def login():
 
 def new_page():
     # Create new page, no keyboard shortcut 
-    time.sleep(3)
+    time.sleep(5)
     pyautogui.moveTo(77, 258)  # Move to "new page"
     time.sleep(1)
     pyautogui.click()
@@ -85,7 +85,7 @@ def new_page():
     time.sleep(1)
 
     pyautogui.write('notes', interval=0.1)
-    time.sleep(1)
+    time.sleep(4)
 
     pyautogui.moveTo(180, 358)  #  Move to "Cornell"-button  
     time.sleep(1)
@@ -306,19 +306,6 @@ def logout():
     subprocess.run(["osascript", "-e", quit]) 
     subprocess.run(["osascript", "-e", quit]) 
     time.sleep(1)
-
-def cleanup():
-    login()
-    time.sleep(4)
-    pyautogui.moveTo(190, 330)  # Move to ... /the right corner
-    time.sleep(1)
-    pyautogui.click()   
-    time.sleep(2)
-    pyautogui.moveTo(290, 510)  # Move to delete
-    time.sleep(1)
-    pyautogui.click()
-    time.sleep(2)
-    logout()
 
 
 def web():

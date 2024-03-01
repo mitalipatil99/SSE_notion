@@ -34,6 +34,7 @@ end tell
 # This function assumes static coordinates for buttons
 def login():
     time.sleep(1)
+    subprocess.run(["open", "/Applications/Google Chrome.app"])
     subprocess.run(["osascript", "-e", fullScreenC]) # Open chrome and activate full screen
 
     time.sleep(2)
@@ -57,11 +58,13 @@ def login():
     pyautogui.click()   
 
     time.sleep(5)
+    subprocess.run(["osascript", "-e", quit_c]) # Quit chrome
+
 
 
 def new_page():
     # Create new page
-    time.sleep(3)
+    time.sleep(5)
     pyautogui.keyDown('command')            # cmd+n = new page
     pyautogui.write('n', interval=0.1)
     pyautogui.keyUp('command')
@@ -86,7 +89,7 @@ def new_page():
     time.sleep(1)
 
     pyautogui.write('notes', 0.1)
-    time.sleep(2)
+    time.sleep(4)
 
     pyautogui.moveTo(207, 245)  # Move to "Cornell"-button  
     time.sleep(1)
@@ -285,9 +288,10 @@ def check_todo():
 
 def logout():
     time.sleep(1)
-    # subprocess.run(["osascript", "-e", fullScreen]) # exit full screen to be able to log out
+    # subprocess.run(["osascript", "-e", fullScreen])
     time.sleep(3)
     pyautogui.moveTo(91, 11)
+
     time.sleep(1)
     pyautogui.click()
 
@@ -299,21 +303,6 @@ def logout():
     time.sleep(2)
     subprocess.run(["osascript", "-e", quit]) # Quit the notion application
     time.sleep(1)
-    subprocess.run(["osascript", "-e", quit_c]) # Quit chrome
-
-
-# Cleanup used in cleanup between iterations of experiment (not in experiment piepline)
-def cleanup():
-    login()
-    time.sleep(1)
-    pyautogui.moveTo(190, 211)  # Move to ... /the right corner
-    pyautogui.click()   
-    time.sleep(1)
-    pyautogui.moveTo(325, 385)  # Move to ... /the right corner
-    pyautogui.click()   
-    logout() 
-
-    
 
 def desktop():
     login()
