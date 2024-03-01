@@ -1,113 +1,75 @@
-# SSE_notion
+# SSE Notion
 
-## Set up, we can add it to replication code github readme
+## Introduction
 
-- mouse is controlled by fixed coorinates that map a screen of size ()
-- The user
-- Keyboard is scalable, when copy-paste function is used insted of press
-  - US keyboard
-  - or change according to doc
-    - Doc suggest '@'
-      - https://pyautogui.readthedocs.io/en/latest/keyboard.html
-- Assumes a folder named Documents in finder
-- Download paper.pdf and save it on your desktop (make sure this is the only file on the desktop/or the coorinates may be changed)
-- If you choose to use your own notion user you have to have the cornell notes template dowloaded (access thourgh: https://www.notion.so/templates/cornell-notes-system)
-- Google chrome V. 122.0.6261.69
-- Notion app v. 3.2.1
-- Laptop
-  - MacBook air 2020
-  - Memory 8GB
-  - macOS Sanoma 14.2.1 (23C71)
-  - Display: 13,3-inch (2560 × 1600)
+This repository contains scripts and instructions for conducting energy consumption experiments comparing the desktop and web versions of Notion.
 
+## Setup Instructions
 
-## User
+### System Requirements
 
-To test the user, we have created a dummy-user.
-Username:sse2024notion@gmail.com
-Password:notion2024
+- **Operating System:** macOS Sanoma 14.2.1 (23C71)
+- **Hardware:** MacBook Air 2020 with 8GB RAM
+- **Display:** 13.3-inch (2560 × 1600)
+- **Google Chrome Version:** 122.0.6261.69
+- **Notion App Version:** 3.2.1
 
-## Use case
+### Additional Setup
 
-- [x] Notes
-- [x] Bullet points
-- [x] Text block
-- [x] Insert attachement
-- [x] math equation
-- [x] code block
+- **Keyboard:** US/ABC
+- **Resources:** Ensure the PDF found in `resources/SSE.pdf` is locally saved on the desktop as the only file. This PDF is uploaded to Notion as part of the experiment run.
+  - **Finder View:** Set Finder to "icon only" view and ensure the icon is placed at the default location or move it to the top left corner.
+- **Mouse Control:** The mouse is controlled by fixed coordinates using `pyauto.moveT(x, y)`. If your computer's screen size or software versions differ, adjust the coordinates in `application_script.py`, `chromewebscript.py`, and `main.py`.
+- **energiBridge.py**: Line #19 and #22 in `energiBridge.py` need to be changed to the correct path (see EnergiBridge section below)
 
-## EnergiBridge
+### Notion User Credentials
 
-- Download the repository from: https://github.com/tdurieux/energibridge
-- CD into the folder that holds the energibridge exec file (energibridge-v0.0.4-aarch64-apple-darwin )
-- 
+- **Username:** sse2024notion@gmail.com
+- **Password:** notion2024
 
-## Marks
+### EnergiBridge Setup
 
-The scritps are written to use both applications in the most efficient way. That means using autocomplete, where that is supporten within the app (ex. @today is tabbet to autocomplete after @t is pressed on keyboard)
+1. Download the EnergiBridge repository from [here](https://github.com/tdurieux/energibridge).
+2. Navigate to the folder containing the EnergiBridge executable file (`energibridge-v0.0.4-aarch64-apple-darwin`). Note the path to this file for configuration.
 
-Do not use delete (it fucks stuff up), use backspace
+## Tested Use Cases
 
-## BLOGPOST STUFF
+Below follows a description on how you can expect the script to act, following estimated timestap (from desktop) for each function (t=0 when terminal executed line #19/22 is executed)
 
-As students we use various note taking softwares often, but which software is an environmantally conscious choice? In this blogpost we answer this question by comparing the energy consumption between the desktop version and the web version of notion. We present arguments on why one might be a better choice than the other.
+### Login
+- **Open Chrome** *(3s)* - This is done to ensure chrome is in fullscreen (and cooridnates in script correct) when redirected from the desktop-app under login.
+  - **Log in on chrome user** *(8s-11s)* - Assumes two profiles on chrome, i.e. you need to select one (and the second is selected)
+- **Open notion** *(12s)*
+  - Redirecting to chrome (15s-21s)
+    - Login to notion from chrome (19s)
+  - Redirectin to notion (22s)
+- **Close chrome** *(26s)*
+ 
+### New page 
+- **Create new page** *(30s)*
+- **Get Cornell template** *(48s)* 
 
-At TU Delft many students create, collaborate and organise their notes on Notion. This can be attributed to the fact that Notion allows for creating databases, integration with google drive, github and its use of KaTeX library to render math equations.
+### Write page
+- **Delete description** *(56s-60s)*
+- **Heading** *(61s-70s)*
+- **Date** *(63s-77s)*
+- **Topic** *(80s-81s)*
+- **Bullet point** *(83s-93)*
+- **To Do list** *(93s-90)**
 
-While sustainiabilty might not be the integral aspect of the Notion software we can make it an afterthought and use it in a manner where we reduce overall energy consumption or save your laptops energy.
+### Material
+- **Finding file to upload** *(112s-118s)*
+  - Starting upload (119s)
+- **New linked page** *(125s-169s)*
 
-RQ : Is there a diffrence in energy consumption of Notion on desktop vs browser.
+### Math
+- **Write math equation** *(175s-185s)*
+  
+### Code
+- **Notes** *(191s)*
+- **Write code** *(196s-208s)*
+- **Check checkbox** *(209s)*
 
-Methodology :
-We conducted two different experiments (login to logout and just making a database/creating an empty page) on two different modes of operation of notion, one mode being desktop and the other mode being notions web application on chrome web browser. We are using the cornell note system template as a use case for both the modes. We have tried to include all the basic features that users usually use on notion in the workflow pipeline.
-The experiment flow for notion is :
-open Desktop app on fullscreen -> login using google sign in option(we created a dummy account for this experiment) -> create a new page using the cornell system template -> write a page title with some basic text -> make a todo list -> ..............#fill it up#...-> write a math equation -> write a piece of code -> check a todo -> logout
-
-We ran an automated script to open notion on desktop and the web version on chrome.
-Each of it was run 30 times and to prevent the order of experiments influencing the resulting measurements, the experiments were randomly shuffled.
-For each experiment, we took the following measurements:.............
-
-In addition to the experiment measurements, we also provide a baseline measurement to give an idea of how background processes impact the measurements. The baseline measurement is a 60 second measurement with the same settings as in the experimental setup but with no programs open except background processes.
-
-Experimental set up :
-
-We conducted the experiments on MacBook Air M1 Laptop with 8GB RAM running macOS Sanoma 14.2.1 (23C71). The specific software used for the experiment is:
-| Software      | Vesrion |
-|---------------|---------|
-| Notion Desktop| 3.2.1     |
-| Google Chrome Browser| 122.0.6261.69     |
-
-The energy consumption was measured using [EnergiBridge](https://github.com/tdurieux/EnergiBridge)
-
-Before executing the experiments it is important to record the state of the system under test so that the state can be kept as consistent as possible between experiments. In addition to the hardware and software specifications above, we made sure that the laptop was in the following state to minimize confounding factors:
-
-1: Stable Wifi6 Connection with average throughput of 250mbps.
-2: Notifications turned off 
-3: Power cable plugged in 
-3: Screen brightness set to 100 %
-4: No applications/programs/services running in the background. 
-
-Since hardware temperature affects the energy consumption among the experiment runs which impacts the results, we set up a warm up routine with a dummy task of calculating fibonnaci sequence for 30 seconds to minimise the temperature difference. 
-The experiment structure was as follows :
-1: warm up CPU
-2: Shuffle and run 60 iterations(30 for desktop experiment and 30 for chrome broswer experiment each)
-   2.1: Start measuring 
-   2.2: Start Notion Workflow (mentioned above) using an automated script 
-   2.3: Stop Measuring
-   2.4: Wait for 30 seconds
-
-Experiment :
-
-Results :
-graphs
-
-Replication:
-
-discussion:
-practical implications.
-
-Limitation:
-worth noting the response time on web vs desktop ,
-accesibililty to online vs offline features
-
-Conclusion
+### Log out
+- **Click on user** *(214s)*
+- **Click log out and log out** *(216s-220s)
