@@ -2,16 +2,38 @@ import os
 import subprocess
 import time
 import random
+
+import pyautogui
 import application_script
 import chromewebscript
 import energiBridge
 
+# Cleanup used in cleanup between iterations of experiment (not in experiment piepline)
+# Deletes page created in prev. run
+# Always used web for clean up
+def cleanup():
+    chromewebscript.login()
+    time.sleep(4)
+    pyautogui.moveTo(123, 333)  # Move to page in left sidebar
+    time.sleep(1)
+    pyautogui.click()   
+    pyautogui.moveTo(1414, 144)  # Move to ... in right corner
+    time.sleep(1)
+    pyautogui.click()   
+    time.sleep(2)
+    pyautogui.moveTo(1300, 511)  # Move to delete
+    time.sleep(1)
+    pyautogui.click()
+
+    time.sleep(2)
+    chromewebscript.logout()
 
 def fibonacci(n):
     if n <= 1:
         return n
     else:
         return fibonacci(n-1) + fibonacci(n-2)
+
 
 
 def warm_up():
@@ -39,8 +61,7 @@ def experiment():
     N = 30  # Number of iterations per function/test
 
     scripts = [
-        application_script.desktop,
-        chromewebscript.web
+        application_script.desktop, chromewebscript.web
     ]
 
     # Duplicate and shuffle the list to run each script 30 times
@@ -68,13 +89,9 @@ def experiment():
         result
 
         # Wait for 200 seconds before the next iteration
-        time.sleep(220) 
+        time.sleep(230) 
 
-        # Cleanup between iterations
-        if script.__name__ == 'desktop':
-            application_script.cleanup()
-        if script.__name__ == 'web':
-            chromewebscript.cleanup()
+        cleanup()
         
         subprocess.run(["osascript", "-e", quit_terminal]) # quite the terminal before next iteration
         time.sleep(60)  # Sleep for 60 sec between iterations
