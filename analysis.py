@@ -94,6 +94,10 @@ def make_time_series_plot(data):
 data = load_data()
 desktop_power = extract_power(data[0])
 web_power = extract_power(data[1])
+average_desktop_power = sum(desktop_power) / len(desktop_power)
+average_web_power = sum(web_power) / len(web_power)
+print(f"Average desktop power: {average_desktop_power} J")
+print(f"Average web power: {average_web_power} J")
 make_violin_plot([desktop_power, web_power])
 
 make_time_series_plot(data)
