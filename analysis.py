@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 def load_data():
-    path = 'results/ex1'
+    path = 'results/ex2'
 
     # Load all csv files that start with desktop in their name
     desktop_files = [f for f in os.listdir(path) if f.startswith('desktop')]
@@ -25,6 +25,7 @@ def extract_power(dataset):
         res = 0
         for i in range(0, len(power)):
             res += power[i] * (delta[i] / 1_000)
+        print(res)
         total_res.append(res)
 
     return total_res
@@ -61,7 +62,7 @@ def make_violin_plot(data_to_plot):
     ax.set_ylabel("Energy Consumption (J)")
 
     # Export
-    fig.savefig("plots/violin_plot.png")
+    fig.savefig("plots/violin_plot2.png")
 
 
 def make_time_series_plot(data):
@@ -73,6 +74,7 @@ def make_time_series_plot(data):
     for data_set in desktop_data:
         data_set[:, 0] = np.cumsum(data_set[:, 0])
     for data_set in web_data:
+
         data_set[:, 0] = np.cumsum(data_set[:, 0])
     # create two plots under each other
     fig, ax = plt.subplots(2, 1)
@@ -97,11 +99,12 @@ def make_time_series_plot(data):
     ax[1].xaxis.set_ticks(np.arange(0, 200001, 25000))
     ax[1].xaxis.set_ticklabels(np.arange(0, 201, 25).round(1))
 
-    fig.savefig("plots/time_series.png")
+    fig.savefig("plots/time_series2.png")
 
 
 data = load_data()
 desktop_power = extract_power(data[0])
+print("=====================================")
 web_power = extract_power(data[1])
 average_desktop_power = sum(desktop_power) / len(desktop_power)
 average_web_power = sum(web_power) / len(web_power)
