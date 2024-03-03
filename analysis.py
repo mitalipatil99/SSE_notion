@@ -61,34 +61,43 @@ def make_violin_plot(data_to_plot):
     ax.set_ylabel("Energy Consumption (J)")
 
     # Export
-    fig.savefig("plots/violin_plot.svg")
+    fig.savefig("plots/violin_plot.png")
 
 
 def make_time_series_plot(data):
     desktop_data = data[0]
     web_data = data[1]
+
+    # make the x-axis in seconds by adding the delta time
+
+    for data_set in desktop_data:
+        data_set[:, 0] = np.cumsum(data_set[:, 0])
+    for data_set in web_data:
+        data_set[:, 0] = np.cumsum(data_set[:, 0])
     # create two plots under each other
     fig, ax = plt.subplots(2, 1)
     for data_set in desktop_data:
-        ax[0].plot(data_set[:, 18])
+        # add the power data on y axis and the time data on the x axis
+        ax[0].plot(data_set[:, 0], data_set[:, 18])
 
     ax[0].set_title("Desktop")
     ax[0].set_ylabel("Power (W)")
     ax[0].set_xlabel("Time (s)")
-    ax[0].xaxis.set_ticks(np.arange(0, 2001, 250))
+    ax[0].xaxis.set_ticks(np.arange(0, 200001, 25000))
     ax[0].xaxis.set_ticklabels(np.arange(0, 201, 25).round(1))
 
     # create more space between the two plots
     plt.subplots_adjust(hspace=0.5)
     for data_set in web_data:
         ax[1].plot(data_set[:, 18])
+        ax[1].plot(data_set[:, 0], data_set[:, 18])
     ax[1].set_title("Web")
     ax[1].set_ylabel("Power (W)")
     ax[1].set_xlabel("Time (s)")
-    ax[1].xaxis.set_ticks(np.arange(0, 2001, 250))
+    ax[1].xaxis.set_ticks(np.arange(0, 200001, 25000))
     ax[1].xaxis.set_ticklabels(np.arange(0, 201, 25).round(1))
 
-    fig.savefig("plots/time_series.svg")
+    fig.savefig("plots/time_series.png")
 
 
 data = load_data()
@@ -96,11 +105,14 @@ desktop_power = extract_power(data[0])
 web_power = extract_power(data[1])
 average_desktop_power = sum(desktop_power) / len(desktop_power)
 average_web_power = sum(web_power) / len(web_power)
-std_dev_desktop = np.std(desktop_power)
-std_dev_web = np.std(web_power)
-print(f"std desktop power: {std_dev_desktop} J")
-print(f"std web power: {std_dev_web} J")
+print(f"Min desktop power: {min(desktop_power)} J")
+print(f"Max desktop power: {max(desktop_power)} J")
+print(f"Variance desktop power: {np.var(desktop_power)} J")
 print(f"Average desktop power: {average_desktop_power} J")
+print("-------------------------------------")
+print(f"Min web power: {min(web_power)} J")
+print(f"Max web power: {max(web_power)} J")
+print(f"Variance web power: {np.var(web_power)} J")
 print(f"Average web power: {average_web_power} J")
 make_violin_plot([desktop_power, web_power])
 
