@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1041e59-9df8-418e-8bc5-c7ca49dc4fce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/time_series.svg" beforeDir="false" afterPath="$PROJECT_DIR$/plots/time_series.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/violin_plot.svg" beforeDir="false" afterPath="$PROJECT_DIR$/plots/violin_plot.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/time_series.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/violin_plot.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,20 +36,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/David/git/SSE_notion/results/ex1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\David\git\SSE_notion\results\ex1" />
+      <recent name="C:\Users\David\git\SSE_notion\plots" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\David\git\SSE_notion\results\outliers" />
       <recent name="C:\Users\David\git\SSE_notion\results\ex1" />
@@ -201,7 +207,7 @@
       <workItem from="1709038430126" duration="134000" />
       <workItem from="1709118243914" duration="4866000" />
       <workItem from="1709213881357" duration="136000" />
-      <workItem from="1709214043326" duration="3902000" />
+      <workItem from="1709214043326" duration="9706000" />
     </task>
     <servers />
   </component>
@@ -209,6 +215,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SSE_notion$analysis.coverage" NAME="analysis Coverage Results" MODIFIED="1709291546319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SSE_notion$analysis.coverage" NAME="analysis Coverage Results" MODIFIED="1709498680937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
