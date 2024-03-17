@@ -3,7 +3,8 @@
 ## Introduction
 
 This repository contains scripts and instructions for conducting energy consumption experiments comparing the desktop and web versions of Notion.
-Accompanying blogpost discussign the results [here](https://luiscruz.github.io/course_sustainableSE/2024/p1_measuring_software/g5_Notion.html)
+
+Accompanying blogpost discussing the experiments and results [here](https://luiscruz.github.io/course_sustainableSE/2024/p1_measuring_software/g5_Notion.html)
 
 ## Setup Instructions
 
